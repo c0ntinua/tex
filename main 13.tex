@@ -1,0 +1,231 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{ mathrsfs }
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+\setlength{\parindent}{0pt}
+\newcommand{\nat}{ \mathbb{N}}
+\newcommand{\rat}{ \mathbb{Q}}
+\newcommand{\zee}{ \mathbb{Z}}
+\newcommand{\reals}{ \mathscr{H}}
+\newcommand{\domain}{- \mathbb{N} \cup \mathbb{N} }
+\newcommand{\zeqs}{ \mathbb{I}}
+\newcommand{\sing}{ ribbon}
+\newcommand{\plural}{ ribbons}
+\newcommand{\of}{ \overline f}
+\newcommand{\og}{ \overline g}
+\newcommand{\oh}{ \overline h}
+\newcommand{\forks}{ \sqsubset}
+
+
+
+
+\title{Ribbons}
+\author{S. Z. }
+\date{January 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Instead of fundamental sequences $f : \nat \to \rat$ we use differently constrained pseudo-sequences $f : \zee \to \rat$ as representatives of real numbers. 
+
+\section{Preliminaries}
+
+Let $\nat$ and $\rat$ be the sets of \textbf{positive} integers and rational numbers respectively.\\
+
+\section{Ribbons}
+
+\textbf{Definition}\\
+A function $f : \zee \to \rat$ is a \textbf{$\sing$} when the following conditions are satisfied.\\
+
+(0) $ 0 < m < n \implies 0 < f_m < f_n$\\
+(1) $ m < n < 0 \implies 0 < f_n < f_m$\\
+(2) $ m \ne 0 \implies 0 < f_m < f_{-m}$\\
+(3) $ |f_{m} - f_{-m}| \to 0 $\\
+
+So any ribbon $f$ is increasing on $\nat$, decreasing on $-\nat$, and its negative and positive ends meet in an infinity without a sign. The value at $0$ is not constrained.\\
+
+\textbf{Example}\\
+Let $f_0 = 1, f_n = n[n+1]^{-1}$ for $n > 0$, and $f_n = [n+1]n^{-1}$ for $n < 0$.
+
+Then  $f = ...\frac{6}{5},\frac{5}{4},\frac{4}{3},\frac{3}{2},\frac{2}{1},1,\frac{1}{2},\frac{2}{3},\frac{3}{4},\frac{4}{5},\frac{5}{6},... \;\;$ meets the four conditions above.\\
+
+\textbf{Note}\\
+It's convenient to think of $f$ as two sequences, one increasing and one decreasing, glued together by $f(0)$. Either sequence alone could serve to represent a positive real number, and then working together they implement something like the Bachmann construction of the reals using nested intervals. The retrosequence serves as the upper jaw and the forward sequence serves as the lower. For legibility, and to emphasize that the negative-domain retrosequence approaches its meeting in infinity with its opposite from above, we create some handy notation.\\
+
+
+\textbf{Definition}\\
+Define $\of_n = f_{-n}$.\\
+
+\textbf{Note}\\
+You can think of the negative sign moved up to play the role of a hat.\\ 
+
+
+\textbf{Definition}\\
+Let $\zeqs$ be the set of all such functions.\\
+
+\section{Operations}
+Addition and multiplication are defined termwise in the usual fashion.\\ 
+
+\textbf{Definition}\\
+For $f,g \in \zeqs$ define $[f + g]_m = f_m + g_m$.\\
+
+\textbf{Definition}\\
+For $f,g \in \zeqs$ define $[fg]_m = f_m g_m$.\\
+
+\textbf{Note}\\
+Sums and products of ribbons are also ribbons.\\ 
+
+\section{Order}
+
+\textbf{Definition}\\
+Define $f \forks g$ if and only if $\forall n \in \nat \;\; $ g_n \le f_n< \of_n \le \og_n.$\\
+
+\textbf{Note}\\
+If $f \forks g$, we say that $f$ \underline{forks} $g$.\\
+
+\textbf{Definition}\\
+Define $f \approx g$ if and only if $\exists h \;\; h \sqsubset f \wedge h \sqsubset g $.\\
+
+\textbf{Definition}\\
+Define $f < g$ if and only if $\;\exists n \;\;  \of_n < g_n $.\\
+
+\textbf{Proposition}\\
+If not $f < g$ and not $f > g$, then $f \approx g$.\\ 
+
+(1  ) $\forall n \;\; g_n \le \of_n$, since not $f < g$.\\
+(2  ) $\forall n \;\; f_n \le \og_n$, since not $f > g$.\\
+(3  ) $\forall n \;\;f_n < \of_n$, since $f \in \zeqs$.\\
+(4  ) $\forall n \;\;g_n < \og_n$. since $g \in \zeqs$.\\
+(5  ) $f_n < \min\{\of_n,\og_n\}$, by (3) and (2).\\
+(6  ) $g_n < \min\{\of_n,\og_n\}$, by (1) and (4).\\
+(7  ) $\max\{f_n,g_n\} < \min\{\of_n,\og_n\}$, by (5) and (6).\\
+(8  ) $\max\{f_n,g_n\} < f_{n+1}$ or $\max\{f_{n},g_{n}\} < g_{n+1}$, since $f$ and $g$ are increasing.\\ 
+(9  ) $\max\{f_n,g_n\} < \max\{f_{n+1},g_{n+1}\}$, by (8).\\
+(10) $\min\{\of_n,\og_n\} > \of_{n+1}$ or $\min\{\of_n,\og_n\} > \og_{n+1}$, since $\of$ and $\og$ are decreasing.\\
+(11) $\min\{\of_n,\og_n\} > \min\{\of_{n+1},\og_{n+1}\}$, by (10).\\
+(12) $\forall n \;\; f_n < \min\{\of_n,\og_n\} < \max\{f_n,g_n\} < \of_n$.\\
+(13) $\forall n \;\; g_n < \min\{\of_n,\og_n\} < \max\{f_n,g_n\} < \og_n$.\\
+(14) Set $h_i = \min\{f_i,g_i\}$ for $i < 0$, $h_i = \max\{f_i,g_i\}$ for $ i > 0$, and $h_0 = 0$.\\
+(15) Then $h \forks f$ by (12) and $h \forks g$ by (13). Hence $f \approx g$.\\
+
+
+\textbf{Proposition}\\
+If $f < g$, then not $g < f$.\\
+
+(1) $\exists n \;\; \of_n < g_n $, by assumption.\\
+(2) These moving boundaries can only move farther apart.\\
+(3) Assume for some earlier $m$ (since a later $m$ is impossible) we also had $g < f$.\\
+(4) Then $\exists n \;\; \og_n < f_n $.\\
+(5) These boundaries can also only move farther apart, so that (1) cannot emerge.\\
+(6) So (1) implies that neither before nor after the given $n$ can the condition for $g < f$ arise at some $m$.\\
+
+\textbf{Proposition}\\
+$f,g \in \zeqs \implies f<g, f>g$, or $f \approx g$.\\
+
+(1) If $f < g$, we are done. So assume not $f < g$.\\
+(2) If $g < f$, we are done. If not, then not $f < g$ and not $g < f$ give $f \approx g$.\\
+
+
+\textbf{Proposition}\\
+$f \approx f', g \approx g' \implies f + g \approx f' + g'$.\\
+
+
+\textbf{Proposition}\\
+$h \forks f, h' \forks g \implies h + h' \forks f + g$.\\
+
+(1) $\forall n \;\; f_n < h_n < \oh_n < \of_n$, by assumption.\\
+(2) $\forall n \;\; g_n < h'_n < \oh'_n < \og_n$, by assumption.\\
+(2) $\forall n \;\; f_n + g_n < h_n + h'_n < \oh'_n + \oh_n <  \of_n  + \og_n$, by (1) and (2).\\ 
+
+\textbf{Proposition}\\
+$f \approx f', g \approx g' \implies f + g \approx f' + g'$.\\
+
+(1) $\exists h \in \zeqs \;\;\;\; h \forks f, h \forks f'$, by assumption.\\
+(2) $\exists h' \in \zeqs \;\;\;\; h' \forks g, h' \forks g'$, by assumption.\\
+(3) $h \forks f, h' \forks g \implies h + h' \forks f + g$, by the previous proposition.\\
+(4) $h \forks f', h' \forks g' \implies h + h' \forks f' + g'$, by the previous proposition.\\
+(5) $h + h' \forks f + g,h + h' \forks f' + g' \implies f + g \approx f' + g'$, by the definition of $\approx$.\\
+
+\textbf{Proposition}\\
+$h \forks f, h' \forks g \implies hh' \forks fg$.\\
+
+(1) $\forall n \;\; f_n < h_n < \oh_n < \of_n$, by assumption.\\
+(2) $\forall n \;\; g_n < h'_n < \oh'_n < \og_n$, by assumption.\\
+(3) $\forall n \;\; f_n g_n < h_n h'_n < \oh'_n \oh_n < \of_n \og_n$, by (1) and (2).\\ 
+
+\textbf{Proposition}\\
+$f \approx f', g \approx g' \implies fg \approx f'g'$.\\
+
+(1) $\exists h \in \zeqs \;\;\;\; h \forks f, h \forks f'$, by assumption.\\
+(2) $\exists h' \in \zeqs \;\;\;\; h' \forks g, h' \forks g'$, by assumption.\\
+(3) $h \forks f, h' \forks g \implies hh' \forks fg$, by the previous proposition.\\
+(4) $h \forks f', h' \forks g' \implies hh' \forks f'g'$, by the previous proposition.\\
+(5) $hh' \forks fg,hh' \forks f'g' \implies fg \approx f'g'$, by the definition of $\approx$.\\
+
+\section{Multiplicative Identity}
+
+\textbf{Definition}\\
+Define $I : \zee \to \rat$ by 
+
+(1) $e_0 = 1$\\
+(2) $e_j = j[j+1]^{-1}$ for $j > 0$\\
+(3) $e_j = [j+1]j^{-1}$ for $j < 0$.\\
+
+\textbf{Proposition}\\
+$f \in \zeqs \implies fe \approx f$.\\
+
+\textbf{Proof}\\
+Since $f \forks f$, it suffices to show $f \forks fe$.\\
+
+Multiplying, we see $\forall n \;\; n[n+1]^{-1}f_n < f_n < f_{-n} < [n+1]n^{-1}f_{-n}$, so $f \forks fe$ and $f \approx fe.$\\
+
+
+\section{Multiplicative Inverse}
+
+
+\textbf{Definition}\\
+For $f \in \zeqs$, define $f^*$ by $f^*_{n} =  f^{-1}_{-n}$.\\
+
+\textbf{Proposition}\\
+$f \in \zeqs \implies f^* \in \zeqs$.\\
+
+Below, let $n \in \nat$.\\
+
+(1) $0 < f_n < f_{n+1} \implies f_{n+1}^{-1} < f_{n}^{-1}  \implies f_{-(n+1)}^* < f_{-n}^*$.\\
+
+(2) $0 < f_{-(n+1)} < f_{-n}   \implies 0 < f_{-n}^{-1} < f_{-(n+1)}^{-1}   \implies f_{n}^* < f_{n+1}^*$.\\
+
+(3) $0 < f_n < f_{-n} \implies 0 < f_{-n}^{-1} < f_n^{-1} \implies f_{n}^* < f_{-n}^*$.\\
+
+(4) $0 < f_1 < f_n < f_{-n} \implies 0 < f_{-n}^{-1} < f_n^{-1} < f_1^{-1}$.\\
+
+(5) $0 < f_{-n}^* - f_n^* = f_n^{-1} - f_{-n}^{-1} = [f_{-m} - f_{m}][f_{-m}^{-1}f_{m}^{-1}] < [f_{-m} - f_{m}][f_{1}^{-1}]^2 \to 0$.\\
+
+\textbf{Proposition}\\
+$\forall f \in \zeqs \;\;\; ff^* \approx e$.\\
+
+Define $g_n = \max\{f_{-n}f_n^{-1}, [n + 1]n^{-1} \}$ for $n < 0$.\\
+
+Define $g_n = \min\{f_{n}f_{-n}^{-1}, n[n + 1]^{-1} \}$ for $n > 0$.\\
+
+Note that $\forall n \in \nat \;\; g_n < 1 < g_{-n}$.\\
+
+Define $h_1 = \frac{k_0-1}{k_0}$ and $h_{-1} = \frac{k_0+1}{k_0}$, where $k_0$ is the least $k \in \nat$ such that $g_1 < \frac{k-1}{k} < 1 < \frac{k+1}{k} < g_{-1}.$\\
+
+For $n > 1$, define $h_n = \frac{k_n-1}{k_n}$ and $h_{-n} = \frac{k_n+1}{k_n}$ where $k_n$ is the least $k \in \nat$ such that $g_n < \frac{k-1}{k} < 1 < \frac{k+1}{k}< g_{-n}$ and $k > k_{n-1}$.\\
+
+Then $\forall n \;\; e_n < \frac{k_n-1}{k_n} < \frac{k_{n+1}-1}{k_{n+1}} < 1 < \frac{k_{n+1}+1}{k_{n+1}} < \frac{k_n+1}{k_n} < e_{-n} \implies h_n \in \zeqs$.\\
+
+Also $h \forks e$ and $h \forks ff^*$, so $ff^* \approx e$.\\
+
+Note that $e_m \nearrow 1$ and $e_{-m} \searrow 1$ as $0< n \to \infty.$\\
+
+Also $\forall n \in \nat \;\; g_n < 1 < g_{-n}$.\\
+
+So there exists a subsequence $h_n = e_{m_n}$ such that $\forall n \;\; g_n < e_{m_n} < 1 < e_{-m_n} < g_{-n}$.\\
+
+\end{document}

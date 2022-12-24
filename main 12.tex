@@ -1,0 +1,142 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{ mathrsfs }
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+\usepackage[margin=0.5in]{geometry}
+\setlength{\parindent}{0pt}
+\newcommand{\nat}{ N}
+\newcommand{\rat}{ P }
+\newcommand{\zee}{ Z }
+\newcommand{\reals}{ \mathscr{H}}
+\newcommand{\domain}{- \mathbb{N} \cup \mathbb{N} }
+\newcommand{\zeqs}{ I}
+\newcommand{\sing}{ ribbon}
+\newcommand{\plural}{ ribbons}
+\newcommand{\of}{ \overline f}
+\newcommand{\og}{ \overline g}
+\newcommand{\oh}{ \overline h}
+\newcommand{\forks}{ \sqsubset}
+\newcommand{\ident}{ \xi}
+
+\newtheorem{theorem}{Theorem}
+
+
+
+
+\title{Ribbons}
+\author{S. Z. }
+\date{January 2022}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Ribbons}
+
+\textbf{Definition}\\
+Let $\rat$ be the set of positive rational numbers. Let $\nat$ be the set of positive integers. Then a function $f : \zee \to \rat$ is a \textbf{$\sing$} when $ f_n < f_{n+1} < f_{-[n+1]} < f_{-n}$ for all $n \in \nat $ and $f_{-n} - f_n \searrow 0$. The structure of a ribbon is therefore $f_1 < f_2 < f_3 < ... < f_{-3} < f_{-2} < f_{-1}$. Denote the set of all such ribbons by $\zeqs$.\\
+
+\textbf{Example}\\
+Let $f_0 = 1, f_n = n[n+1]^{-1}$ for $n > 0$, and $f_n = [n+1]n^{-1}$ for $n < 0$. Then  $f = ...\frac{6}{5},\frac{5}{4},\frac{4}{3},\frac{3}{2},\frac{2}{1},1,\frac{1}{2},\frac{2}{3},\frac{3}{4},\frac{4}{5},\frac{5}{6},... $ is a ribbon.\\
+
+\section{Operations}
+
+\textbf{Definition}\\
+For $f,g \in \zeqs$ define $f + g$ by $[f + g]_m = f_m + g_m$ and $fg$ by $[fg]_m = f_m g_m$. Since $f(Z) \subset P$ and $g(Z) \subset P$, it's easily shown that $f + g \in \zeqs$ and $fg \in \zeqs$.  Commutativity and associativity follow easily from these same properties in $\rat$.\\
+
+\section{Order}
+
+\textbf{Definition}\\
+Define $\of_n = f_{-n}$.\\
+
+\textbf{Definition}\\
+For $f,g \in \zeqs$, define $f \forks g$ if and only if $ g_n \le f_n< \of_n \le \og_n$ for all $n \in \nat$.\\
+
+\textbf{Note}\\
+If $f \forks g$, we say that $f$ \underline{forks} $g$.\\
+
+\textbf{Definition}\\
+For $f,g \in \zeqs$, define $f \approx g$ if and only if $\exists h \;\; h \sqsubset f \wedge h \sqsubset g $.\\
+
+\textbf{Definition}\\
+Define $f < g$ if and only if $\;\exists n \;\;  \of_n < g_n $.\\
+
+\textbf{Proposition}\\
+If not $f < g$ and not $f > g$, then $f \approx g$.\\ 
+
+\textbf{Proof}\\
+Taking the negations of $f < g$ and $f > g$, we start with $g_n \le \of_n$ and $f_n \le \og_n $ for all $n \in \nat$. Then $f_n < \min\{\of_n,\og_n\}$ and $g_n < \min\{\of_n,\og_n\}$, also for all $n$.
+So $\max\{f_n,g_n\} < \min\ [\of_n,\og_n ] $. Then $\max\{f_n,g_n\} < \max\{f_{n+1},g_{n+1}\}$, since $f$ and $g$ are increasing.
+Also $\min\{\of_{n+1},\og_{n+1}\}  < \min\{\of_n,\og_n\}$, since $\of$ and $\og$ are decreasing. This gives us the structure we need with $ \max\{f_n,g_n\} < \max\{f_{n+1},g_{n+1}\} < \min\{\of_{n+1},\og_{n+1}\}  < \min\{\of_n,\og_n\}$.  Set $h_i = \min\{f_i,g_i\}$ for $i < 0$ and $h_i = \max\{f_i,g_i\}$ for $ i > 0$. Then $h \forks f$ and $h \forks g$, so $f \approx g$.\\
+
+\textbf{Proposition}\\
+For all $f,g \in \zeqs$, if $f < g$, then not $g < f$.\\
+
+\textbf{Proof}\\
+Let $n_0$ be the first $n \in \nat$ such that $f_{-n} < g_n$ or $g_{-n} < f_n$. If both conditions are satisfied, then $g_{-n_0} < f_{n_0} < f_{-n_0} < g_{n_0}$, a contradiction. If $f_{-n_0} < g_{n_0}$, then $f_{-[n_0 + n]} < f_{-n_0} < g_{n_0} < g_{n_0 + n}$ for all $n \in \nat$, so $g_{-n} < f_n$ cannot occur for $n > n_0$. If $g_{-n_0} < f_{n_0}$, then $g_{-[n_0 + n]} < g_{-n_0} < f_{n_0} < f_{n_0 + n}$ for all $n \in \nat$, so $f_{-n} < g_n$ cannot occur for $n > n_0$. So both conditions cannot be simultaneously satisfied, and the satisfaction of one makes the other impossible. \\
+
+\textbf{Proposition}\\
+$f,g \in \zeqs \implies f<g, f>g$, or $f \approx g$.\\
+
+\textbf{Proof}\\
+If $f < g$, we are done. So assume not $f < g$. Then if $g < f$, we are done. So assume both not $f < g$ and not $g < f$. Then $f \approx g$ by a previously established proposition.\\
+
+
+\textbf{Proposition}\\
+$h \forks f, h' \forks g \implies h + h' \forks f + g$.\\
+
+\textbf{Proof}\\
+From $f_n < h_n < \oh_n < \of_n$ and $g_n < h'_n < \oh'_n < \og_n$, we get $f_n + g_n < h_n + h'_n < \oh'_n + \oh_n <  \of_n  + \og_n$, in all cases for all $n$, hence $h + h' \forks f + g$.\\
+
+\textbf{Proposition}\\
+$f \approx f', g \approx g' \implies f + g \approx f' + g'$.\\
+
+\textbf{Proof}\\
+Let $h$ satisfy $h \forks f$ and $h \forks f'$. Let $h'$ satisfy $h' \forks g$ and $h' \forks g'$. Then  $h + h' \forks f + g$ and $h + h' \forks f' + g'$, by the previous proposition. So $f + g \approx f' + g'$.\\
+
+\textbf{Proposition}\\
+$h \forks f, h' \forks g \implies hh' \forks fg$.\\
+
+\textbf{Proof}\\
+From $0 < f_n < h_n < \oh_n < \of_n$ and $0 < g_n < h'_n < \oh'_n < \og_n$,we get $ 0 < f_n g_n < h_n h'_n < \oh'_n \oh_n < \of_n \og_n$, in each case for all $n$. Hence $hh' \forks fg$.\\
+
+\textbf{Proposition}\\
+$f \approx f', g \approx g' \implies fg \approx f'g'$.\\
+
+\textbf{Proof}\\
+Let $h$ satisfy $h \forks f$ and $h \forks f'$. Let $h'$ satisfy $h' \forks g$ and $h' \forks g'$. Then  $hh' \forks fg$ and $hh' \forks f'g'$, by the previous proposition. So $fg \approx f'g'$.\\
+
+\section{The Multiplicative Identity}
+
+\textbf{Definition}\\
+Define $\ident : \zee \to \rat$ by $\ident_0 = 1$, $\ident_j = j[j+1]^{-1}$ for $j > 0$, and $\ident_j = [j+1]j^{-1}$ for $j < 0$. Then  $\ident = ...\frac{6}{5},\frac{5}{4},\frac{4}{3},\frac{3}{2},\frac{2}{1},1,\frac{1}{2},\frac{2}{3},\frac{3}{4},\frac{4}{5},\frac{5}{6},... \;\;$ is a ribbon.\\
+
+
+\textbf{Proposition}\\
+$f \in \zeqs \implies f\ident \approx f$.\\
+
+\textbf{Proof}\\
+Since $f \forks f$, it suffices to show $f \forks f\ident$. Multiplying, we see $\forall n \;\; n[n+1]^{-1}f_n < f_n < f_{-n} < [n+1]n^{-1}f_{-n}$, so $f \forks f\ident$ and $f \approx f\ident.$\\
+
+
+\section{A Multiplicative Inverse}
+
+\textbf{Definition}\\
+For $f \in \zeqs$, define $f^*$ by $f^*_{n} =  f^{-1}_{-n}$.\\
+
+\textbf{Proposition}\\
+$f \in \zeqs \implies f^* \in \zeqs$.\\
+
+
+From $0 < f_n < f_{n+1} < f_{-(n+1)} < f_{-n}$, we get $f_{n}^* < f_{n+1}^* <  f_{-(n+1)}^* < f_{-n}^* $. Also $0 < f_1 \le f_n < f_{-n}$, so that $[f_{-n}]^{-1} <  [f_n]^{-1} \le f_1^{-1}$. Then $0 < f_{-n}^* - f_n^* = f_n^{-1} - f_{-n}^{-1} = [f_{-m} - f_{m}][f_{-m}^{-1}f_{m}^{-1}] < [f_{-m} - f_{m}][f_{1}^{-1}]^2 \to 0$. So $f^* \in \zeqs$.\\
+
+\textbf{Proposition}\\
+$\forall f \in \zeqs \;\;\; ff^* \approx \ident$.\\
+
+\textbf{Proof}\\
+Note that $\ident_m \nearrow 1$ and $\ident_{-m} \searrow 1$. Also $[ff^*]_{n} = f_{n}f_{-n}^{-1} < 1 < f_{-n}f_n^{-1} = [ff^*]_{-n}$. So there exists a subsequence $h_n = \ident_{m_n}$ such that $\forall n \;\;f_{n}f_{-n}^{-1} < m_n[m_n+1]^{-1} < 1 < [m_n+1]m_n^{-1} < f_{-n}f_n^{-1}$. Since $h \forks \ident$ and $h \forks ff^*$, we have $ff^* \approx \ident$.\\
+
+\end{document}

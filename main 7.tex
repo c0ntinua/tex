@@ -1,0 +1,312 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[usenames]{color} %used for font color
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+\usepackage{setspace}
+\usepackage{ mathrsfs }
+\usepackage[margin=0.5in]{geometry}
+\usepackage{graphics}
+\setlength{\parindent}{0pt}
+\newcommand{\odds}{ \mathscr{O}}
+\newcommand{\evens}{ \mathscr{E}}
+
+% \newcommand{\rationals}{ \mathscr{Q}}
+% \newcommand{\hyperset}{ \mathscr{H}}
+% \newcommand{\targetset}{ \mathbb{\beta}}
+% \newcommand{\sourceset}{ \mathbb{D}}
+\newcommand{\rationals}{ Q}
+\newcommand{\hyperset}{ H}
+\newcommand{\targetset}{ \beta}
+\newcommand{\sourceset}{ D}
+
+
+\newcommand{\reals}{ \mathbb{\elt}}
+
+\newcommand{\disjoints}{ X}
+\newcommand{\nondisjoints}{E}
+\newcommand{N}{ N}
+\newcommand{\carpenter}{ c }
+\newcommand{\leaper}{l}
+\newcommand{\climber}{ f}
+\newcommand{h}{h}
+\newcommand{\elt}{a}
+\newcommand{helt}{b}
+\newcommand{\altelt}{s}
+\newcommand{\r}{\Psi}
+\newcommand{\invmark}{\overline}
+\newcommand{\odds}{ \mathscr{O}}
+\newcommand{\sequencer}{\sigma}
+\newcommand{\umbrella}{u}
+\newcommand{\prevert}{z}
+\newcommand{\targetname}{bundle }
+\newcommand{\targetnameplural}{bundles }
+\newcommand{\intersector}{\Xi}
+\newcommand{\interceptor}{\Omega}
+\newcommand{\wed}{e}
+\newcommand{\Segmenter}{s}
+\newcommand{h}{\Phi}
+
+
+\title{\textbf{Dyadic Beams}}
+\author{S. Z. }
+
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The 'dyadic beams' presented here are approximately a construction of the positive real numbers. They are a twist on the famous Dedekind cuts.
+
+\section{Preliminaries}
+
+
+\textbf{Raw Material}\\
+Let $N $ be the set of positive integers, and let $\odds = 2N - 1 $ be the set of positive odd integers. For $n \in N$, define  $\nondisjoints_n = \{ 2^{-n}j : j \in N \}.$ Then we have $ \nondisjoints_n \subset \nondisjoints_{n+1}$, for all $n$. We'll also use a pairwise disjoint system of sets. Define $\disjoints_n = \{2^{-n} j : j \in \odds \}$ for $n \in N$ and $\disjoints_0 = N$. Then define the positive dyadic numbers as $\sourceset$ = \bigcup_{n = 1}^\infty \nondisjoints_n =  \bigsqcup_{n= 0}^\infty \disjoints_n$.\\
+
+
+\textbf{Ordering Subsets of $\sourceset$}\\
+We'll be concerned with special subsets of $\sourceset$, which will require some ordering. So for $\alpha,\beta \subset \sourceset$, define $\alpha < \beta$ to mean $\alpha \subsetneqq \beta $.\\
+
+\section{Dyadic Beams}
+\textbf{Definition}\\
+Define $\targetset = \{\alpha \in 2^\sourceset : \;\; \emptyset < \alpha < \sourceset, \;\; a' < a \in \alpha \implies a' \in \alpha,\;\; \forall a \in \alpha \;\; \exists a'  \in \alpha \;\; a < a'\;\; \}$.\\
+
+\textbf{Definition}\\
+Define $h : \sourceset \to \targetset$ by $h(\altelt)  = \{ \elt \in \sourceset : \elt < \altelt \}$.\\
+
+\textbf{Proposition}\\
+$\forall helt \in \sourceset \;\; h(helt) \in \targetset.$\\
+
+(1) $0 < 2^{-1}helt < helt \implies 2^{-1}helt \in h(helt)$.\\ 
+(2) $\elt \in h(\altelt) \implies \elt < \altelt \implies \altelt \notinh(helt)$.\\
+(3) $\elt < \altelt \in h(\altelt) \implies 0 < \elt < \altelt < helt \implies \elt \in h(helt).$\\
+(4) $\elt \in h(helt) \implies \elt < helt \implies \elt < 2^{-1}(\elt+ helt) < helt \implies 2^{-1}(\elt+ helt) \in h(helt)$.\\
+
+
+
+
+\section{An Enumerating Sequence}\\
+
+\textbf{Definition}\\
+For $\alpha \in \targetset$ and $ n \in N$, define $\intersector^A_n = \alpha \cap \disjoints_n$.\\
+
+\textbf{Proposition}\\
+$\alpha = \bigsqcup_n^\infty \intersector^A_n$.\\
+
+\textbf{Definition}\\
+Define $\wed^\alpha = \min \{ m \in N : 2^{-m} \in \alpha \}$. \\
+
+\textbf{Definition}\\
+For $\alpha \subset \sourceset$, define $|\alpha|$ to be the number of elements of $\alpha$, where $\infty$ represents countable infinity.\\ 
+
+\textbf{Proposition}\\
+$\forall n \in N \;\; n \ge \wed^\alpha \implies 0 <  |\intersector^A_n| < \infty$.\\
+
+\textbf{Definition}\\
+Let $\elt \in \interceptor_i,  \elt' \in \interceptor_j$. Define $\elt \prec \elt'$ if either $i < j$ or $i = j$ and $\elt < \elt'$.\\
+
+\textbf{Proposition}\\
+\alpha is well-ordered by $\prec.$\\
+
+\textbf{Note}\\
+Each nonempty subset of a well-ordered set has a minimum.\\ 
+
+\textbf{Definition}\\
+For $\alpha \in \targetset$, define $\carpenter^\alpha : N \to \alpha$ so that $\carpenter^A_n$ is the $n$th element of $\alpha$ according to $\prec$.\\
+
+
+\textbf{Example}\\
+Let $\alpha = \{ \elt \in \sourceset : \elt < 1 \}.$ Then $\carpenter^\alpha = \frac{1}{2},\frac{1}{4},\frac{3}{4},\frac{1}{8},\frac{3}{8},\frac{5}{8}, ... $ and $\carpenter^A_2 = \frac{1}{4}$.\\
+
+\textbf{Note}\\
+Each element of $\alpha$ appears exactly once as a term in the sequence $\carpenter_A$.\\
+
+
+\section{\alpha Nondecreasing Sequence}
+
+
+\textbf{Definition}\\
+For $\alpha \in \targetset$ and $ n \in N$, define $\interceptor ^A_n = \alpha \cap \nondisjoints_{n + \wed^\alpha - 1}$.\\
+
+\textbf{Proposition}\\
+$\forall n \in N \;\; |\interceptor^A_n| \in N$.\\
+
+\textbf{Proposition}\\
+$\alpha = \bigcup_n^\infty \interceptor^A_n$.\\
+
+
+\textbf{Definition}\\
+For each $\alpha \in \targetset$ define $\climber^\alpha: N \to \alpha$ by $\climber^A_n = \max \interceptor^A_n$.\\
+
+\textbf{Example}\\
+Let $\alpha = \{ \elt \in \sourceset :\elt < 1 \}.$ Then  $\climber^\alpha = \frac{1}{2}, \frac{3}{4},\frac{7}{8},\frac{15}{16},\frac{31}{32},\frac{63}{64},\frac{127}{128}, ... $\\
+
+\textbf{Proposition}\\
+$\forall n \in N  \;\;f^A_n \le f^A_{n + 1}$.\\
+
+(1) $\nondisjoints_{n+ \wed^\alpha - 1} \subset \nondisjoints_{n+1 + \wed^\alpha - 1} \implies \interceptor^A_n \subset \interceptor^A_{n+1} \implies  \max \interceptor^A_n \le \max \interceptor^A_{n+1} \implies f^A_n \le f^A_{n + 1}$.\\
+
+ \textbf{Proposition}\\
+ $\forall n \in N \;\; f^A_n \in \alpha.\\
+
+\textbf{Proposition}\\
+$\forall n \in N \;\; f^A_n + 2^{-n} \notin \alpha.\\
+
+(1)$f^A_n +2^{-n} \in \alpha \implies f^A_n + 2^{-\alpha^\alpha - n + 1} \in \alpha \implies \max \interceptor^A_n = f^A_n < f^A_n + 2^{-\alpha^\alpha - n + 1} \le \max \interceptor^A_n$, a contradiction.\\
+
+\textbf{Proposition}\\
+$\forall a \in \alpha \;\; \exists n \in N \;\; a < f^A_n.$\\ 
+
+(1) $a \in \alpha \in \targetset \implies \exists a' \in \targetset \;\; a <  a'$.\\
+(1) $a' \in \alpha = \bigcup_{n = 0}^\infty \interceptor^A_n \implies \exists n_0 \in N \;\; a' \in \interceptor^A_{n_0} \implies a < a' \le f^A_{n_0} = \max \interceptor^A_{n_0}$.\\
+
+\section{\alpha Helper Function}
+
+\textbf{Definition}\\
+For $\alpha \in \targetset$ define $\leaper^\alpha : \alpha \to \alpha$ by $\leaper^\alpha(a) = \carpenter^A_{m_0}$, where $m_0 = \min \{ m \in N : \carpenter^\alpha(m) > a \}.$\\
+
+
+\section{An Upper Bound}
+
+\textbf{Definition}\\
+For $\alpha \in \targetset$ define $\umbrella^\alpha= \min \{ k \in \sourceset : k \notin \alpha \}.$\\ 
+
+\section{Multiplication}\\
+
+\textbf{Definition}\\
+For $\alpha, \beta \in \targetset$ define $AB = \{ \elt \in \sourceset : \exists a' \in \alpha \;\; \exists b' \in \beta \;\; \elt < a'b' \}.$\\
+
+\textbf{Proposition}\\
+$\alpha, \beta \in \targetset \implies AB \in \targetset$.\\ 
+
+(1) $2^{-m_0} < \carpenter^A_1 \carpenter^B_1  \implies 2^{-m_0} \in AB$.\\
+(2) $\umbrella^\alpha \umbrella^\beta \in AB \implies \exists a \in \alpha \;\; \exists b \in \beta \;\; \umbrella^\alpha \umbrella^\beta < ab < \umbrella^\alpha \umbrella^\beta$, a contradiction. \\
+(3) $ \altelt < \elt' \in AB \implies \;\; \exists a \in \alpha \;\; \exists b \in \beta \;\; \altelt < \elt' < ab \implies \altelt \in AB$.\\ 
+(4) $\altelt \in AB \implies \exists a \in \alpha \;\; \exists b \in \beta \;\; \altelt < ab  < \leaper^\alpha(a) \leaper^\beta(b) \implies ab \in AB.$\\
+
+
+\section{\alpha Multiplicative Identity}\\
+
+
+
+\textbf{Definition}\\
+Define $I = \{\elt \in \sourceset : \elt < 1 \}$.\\
+
+\textbf{Proposition}\\
+$\forall \alpha \in \targetset \;\; AI = \alpha$.\\
+
+(1) $\elt \in AI \implies \elt < a'i < a' \implies \elt \in \alpha$. Hence $AI \subset \alpha$.\\
+(2) $\elt \in \alpha \implies \elt < \leaper^\alpha(\elt) \in \alpha \implies \exists n_0 \;\; \elt < \leaper^\alpha(\elt)(1-2^{-n_0}) \implies a \in AI.$ Hence $\alpha \subset AI$. \\
+
+\section{\alpha Simple Square Root}\\
+
+\textbf{Definition}\\
+Define $\r : \sourceset \to \targetset$ by $\r(\altelt) = \{\elt \in \sourceset: \elt^2 < \altelt\}.$\\ 
+
+\textbf{Proposition}\\
+$[f^{\r(p)}_n]^2 \nearrow p$.\\
+
+(1) $[f^{\r(p)}_n]^2 < p < [ f^{\r(p)}_n + 2^{-n} ]^2 = [f^{\r(p)}_n]^2  + 2^{1-n} f^{\r(p)}_n +  2^{-2n} < p + 2^{1-n} \umbrella^{\r(p)} + 2^{-2n}$.\\
+(2) $0 < p - [f^{\r(p)}_n]^2 < 2^{1-n} \umbrella^{\r(p)} + 2^{-2n} \to 0$.\\
+
+\textbf{Proposition}\\
+$[f^{\r(p)}_n +2^{-n}]^2 \searrow p$.\\
+
+(1) $0 < [ f^{\r(p)}_n + 2^{-n} ]^2 - p < [ f^{\r(p)}_n^2 + 2^{-n} ]^2 -[f^{\r(p)}_n]^2 < 2^{1-n} \umbrella^{\r(p)} + 2^{-2n} \to 0$.\\
+
+\textbf{Proposition}\\
+$\forall \altelt \in \sourceset \;\; \r(\altelt) \in \targetset$.\\
+
+(1) $ 2^{-n_0} < \min\{s,1\} \implies (2^{-n_0})^2 = 2^{-2n_0} < 2^{-n_0} < \altelt \implies 2^{-n_0} \in  \r(\altelt)$.\\
+(2) $\elt = \max\{\altelt ,1\} \implies \elt^2 \ge \elt \ge \altelt \implies \elt \notin  \r(\altelt).$\\ 
+(3) $\elt < \altelt \in  \r(\altelt) \implies \elt^2 < \altelt^2 < x \implies \elt \in \r(\altelt)$.\\
+(4) $\elt \in \r(\altelt) \implies \elt^2 < \altelt \implies  (\elt + 2^{-n_0})^2 = \elt^2 + 2^{1-n_0}\elt + 2^{-2n_0} < \altelt \implies (\elt + 2^{-n_0})^2 \in   \r(\altelt)$.\\
+
+\textbf{Proposition}\\
+$\forall \altelt \in \sourceset \;\; \r(\altelt)\r(\altelt) = h(\altelt).\\ 
+
+(1) $x \in \r(\altelt)\r(\altelt) \implies x < q_0q_1 < q^2_{\max} < \altelt \implies  x \in h(\altelt)$. Hence $\r(\altelt)\r(\altelt) \subset h(\altelt)$\\
+(2) $p \in h(\altelt)$ and $[ f^{\r(p)}_n + 2^{-n} ]^2 \searrow p \implies \exists n_0 \in N \;\;  p < [ f^{\r(p)}_{n_0} + 2^{-n_0} ]^2 < s$.\\
+(3) $f^{\r(p)}_{n_0} + 2^{-n_0} \in \r(\altelt) \implies p \in \r(\altelt)\r(\altelt)$. Hence $h(\altelt) \subset \r(\altelt)\r(\altelt)$.\\ 
+
+
+\section{Generalizing The Simple Square Root}\\
+
+\textbf{Definition}\\
+For all $\alpha \subset \sourceset$, define $\sqrt{\alpha} = \{\elt \in \sourceset:  \elt^2 \in \alpha\}.$\\
+
+
+
+\textbf{Proposition}\\
+$\forall \alpha \in \targetset \;\; \sqrt{\alpha} \in \targetset$.\\
+
+(1) $ 2^{-n_0} \in P \implies 2^{-2n_0} < 2^{-n_0} \in P \implies 2^{-2n_0} \in P \implies 2^{-n_0} \in \sqrt{P}.$\\
+(2) $p <  \umbrella_P < \umbrella_P^2  \implies \umbrella_P \notin  \sqrt{P}$.\\ 
+(3) $\elt < \altelt \in  \sqrt{P} \implies \elt^2 < \altelt^2 \in P \implies \elt^2 \in P \implies \elt \in \sqrt{P}.$\\ 
+(4) $\elt \in \sqrt{P} \implies \elt^2 < p_0 \in P \implies  (\elt + 2^{-n_0})^2 < p_0 \implies \elt + 2^{-n_0} \in   \sqrt{P}$.\\
+
+
+\textbf{Proposition}\\
+$\forall \alpha \in \targetset \;\; \sqrt{\alpha} \sqrt{\alpha} = \alpha$.\\ 
+
+(1) $\elt \in \sqrt{\alpha} \sqrt{\alpha}\implies \exists r_0, r_1 \in \sqrt{\alpha} \;\;\; \elt < r_0r_1 \le r_{\max}^2 \in \alpha \implies \elt \in \alpha$. Hence $\sqrt{\alpha} \sqrt{\alpha} \subset \alpha.$\\
+(2) $a \in \alpha$ and  $[f^{\r(a)}_n + 2^{-n}]^2 \searrow a \implies \exists n_0 \in N \;\; a < [f^{\r(a)}_{n_0} + 2^{-n_0}]^2 < \leaper^\alpha(a) $.\\
+(3) $ f^{\r(a)}_{n_0} + 2^{-n_0} \in \sqrt{\alpha} \implies a \in \sqrt{\alpha}\sqrt{\alpha}$. Hence $\alpha \subset \sqrt{\alpha} \sqrt{\alpha}$.\\ 
+
+\section{\alpha Multiplicative Inverse}\\
+
+\textbf{Definition}\\
+For $\alpha \subset \sourceset$, define $\invmark \alpha := \{ \altelt \in \sourceset : \exists n \in N \;\; \forall a \in \alpha \; [\altelt + 2^{-n}]a < 1\}$.\\
+
+\textbf{Proposition}\\
+$\forall \alpha \in \targetset \;\; \invmark \alpha \in \targetset.$\\
+
+(1) $[2^{-m_0} + 2^{-m_0} ]\umbrella^\alpha < 1 \implies [2^{-m_0} + 2^{-m_0} ]a < [2^{-m_0} + 2^{-m_0} ]\umbrella^\alpha < 1 \implies 2^{-m_0} \in \invmark \alpha.$\\
+(2) $2^{-n_0} < \carpenter^A_1 \implies 1 < 2^{n_0} \carpenter^A_1 \implies 2^{n_0} \notin \invmark \alpha$.\\
+(3) $y < x \in \invmark \alpha \implies  \forall \elt \in \alpha \;\; [ y + 2^{-m_0} ]a <  [ x + 2^{-m_0} ]a< 1 \implies y \in \invmark \alpha$.\\
+(4) $x \in \invmark \alpha \implies \forall \elt \in \alpha \;\; [x + 2^{-m_0}]a = [x + 2^{-m_0-1} + 2^{-m_0-1}]a < 1 \implies x + 2^{-m_0-1} \in \invmark \alpha$.\\
+
+
+\textbf{Definition}\\
+Define $\prevert^{\alpha}_n = \carpenter^A_{m_n}$ where $m_n = \min\ M_n$, where $M_n = \{ m \in N : \carpenter^A_m [ f^{\invmark \alpha}_n + 2^{-n}] \ge 1 \}$.\\
+
+\textbf{Note}\\
+The set $M_n$  above is not empty for any $n$, else $f^{\invmark \alpha}_n + 2^{-n} \in \invmark \alpha$, which is impossible by the definition of $f^{\invmark \alpha}_n$.\\
+
+\textbf{Proposition}\\
+$\forall n \in N \;\; 0 < f^{\invmark \alpha}_n \prevert^{ \alpha}_n < 1.$\\
+
+
+
+
+\textbf{Proposition}\\
+$\forall \alpha \in \targetset \;\;  \alpha \invmark \alpha = I.$ \\
+
+(1) $x \in \alpha \invmark \alpha \implies x < a_0 \invmark a_0 < 1 \implies x \in I$. Hence $\alpha \invmark \alpha \subset I$.\\  
+(2) $ f^{\invmark \alpha}_n \prevert^{\alpha}_n < 1 \le [f^{\invmark \alpha}_n +2^{1-n}] \prevert^{ \alpha}_n = f^{\invmark \alpha}_n \prevert^{ \alpha}_n + 2^{1-n}\prevert^{\alpha}_n < 1 + 2^{1-n}\umbrella^\alpha \implies 0 < 1 - f^{\invmark \alpha}_n \prevert^{ \alpha}_n < 2^{1-n}\umbrella^\alpha   \implies f^{\invmark \alpha}_n \prevert^{ \alpha}_n \to 1$.\\
+(3) $ p \in I \implies 0 < p < 1 \implies \exists n_0 \in N \;\; 0 < p <  f^{\invmark \alpha}_{n_0}  \prevert^{ \alpha}_{n_0} < 1 \implies p \in \alpha \invmark \alpha$. Hence $ I \subset \alpha \invmark \alpha $.\\ \\
+
+\section{The Structure of $\targetset$}
+
+
+\textbf{Definition}\\
+For $\alpha \in \targetset$, define $\Segmenter^\alpha = \bigcup_{\beta \in \targetset}^ {\beta < \alpha} \beta$.\\
+
+\textbf{Note}\\
+In other words, $\Segmenter^\alpha$ is the union of all elements in $\targetset$ that are less than $\alpha$.\\
+
+\textbf{Proposition}\\
+$\forall \alpha \in \targetset \;\;\; \alpha = \Segmenter^\alpha $.\\
+
+
+(1) $a  \in \alpha \implies a  < \leaper^\alpha(a ) \implies a  \in h(\leaper^\alpha(a ) ) < \alpha \implies a \in  \Segmenter^\alpha$. Hence $\alpha \subset \Segmenter^\alpha$.\\
+(2) $a \in \Segmenter^\alpha \implies \exists \alpha' \in \targetset \;\; a \in \alpha' < \alpha \implies  a \in \alpha.$ Hence $\Segmenter^\alpha \subset  \alpha.$\\
+
+
+\end{document}
+

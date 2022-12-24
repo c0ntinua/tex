@@ -1,0 +1,292 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[usenames]{color} %used for font color
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+\usepackage{setspace}
+\usepackage{ mathrsfs }
+\usepackage[margin=0.5in]{geometry}
+\setlength{\parindent}{0pt}
+\newcommand{\odds}{ \mathscr{O}}
+\newcommand{\evens}{ \mathscr{E}}
+
+\newcommand{\rationals}{ \mathscr{Q}}
+\newcommand{\targetset}{ \mathscr{X}}
+\newcommand{\sourceset}{ \mathscr{P}}
+\newcommand{\reals}{ \mathbb{\elt}}
+
+\newcommand{\disjoints}{ X}
+\newcommand{\nondisjoints}{E}
+\newcommand{\naturals}{ \mathscr{N}}
+\newcommand{\carpenter}{ \omega }
+\newcommand{\leaper}{l}
+\newcommand{\climber}{ f}
+\newcommand{\homo}{h }
+\newcommand{\elt}{q}
+\newcommand{\homoelt}{p}
+\newcommand{\altelt}{p}
+\newcommand{\rooter}{\Psi}
+\newcommand{\invmark}{\overline}
+\newcommand{\odds}{ \mathscr{O}}
+\newcommand{\sequencer}{\sigma}
+\newcommand{\umbrella}{\beta}
+\newcommand{\prevert}{\zeta}
+\newcommand{\targetname}{bundle }
+\newcommand{\targetnameplural}{bundles }
+\newcommand{\intersector}{\Omega}
+\newcommand{\interceptor}{\Xi}
+
+
+\title{Bundles}
+\author{S. Z. }
+\date{January 2022}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Note}\\
+The following is a construction of (dyadic) Dedekind \textbf{rods} as opposed to the famous cuts. Only positive real-like numbers are developed, though it's easy from here to use equivalence classes of pairs of rods to get the rest.  Instead of thinking of the real number as a parting of the rationals, we can also think of each real number as a measuring rod. In this case each rod is a well-ordered and countably infinite set of simpler dyadic rods. The magnitude suggested by such a infinite set is the smallest stretch of space in which all of the simple rods will fit. This presentation takes some experience with limits for granted. Only the more difficult propositions are proved, and these are proved somewhat informally.\\
+
+
+\textbf{Definition}\\
+Let $\naturals $ be the set of positive integers.\\
+
+\textbf{Definition}\\
+For $n \in \naturals$, define  $\nondisjoints_n  = \{j/n : j \in \naturals \}$. \\
+
+
+\textbf{Definition}\\
+Define $\sourceset = \bigcup_{n = 1}^\infty \nondisjoints_n$.\\
+
+\textbf{Note}\\
+This means that $\sourceset$ is just the set of positive rational numbers.\\
+
+\textbf{Definition}\\
+For $A,B \subset \sourceset$, define $A < B$ to mean $A \subsetneqq B $.\\
+
+\textbf{Definition}\\
+Define $\targetset = \{A \subset \sourceset : \;\; \emptyset < A < \sourceset,\;\; \altelt < \elt \in A \implies \altelt \in A,\;\; \forall \elt \in A \;\; \exists \altelt  \in A \;\; \elt < \altelt \}$.\\
+
+\textbf{Note}\\
+The entities defined above are nonempty, proper subsets of the positive rationals which are closed downward and have no maximum.\\
+
+\section{Injecting $\sourceset$ into $\targetset$}\\
+
+\textbf{Definition}\\
+For $\altelt \in \sourceset$, define $(\elt < \altelt) = \{\elt \in \sourceset : \elt < \altelt \}$.\\
+
+\textbf{Definition}\\
+Define $\homo : \sourceset \to \targetset$ by $\homo(\altelt)  = (\elt < \altelt)}$.\\
+
+\textbf{Proposition}\\
+$\homoelt \in \sourceset \implies \homo(\homoelt) \in \targetset.$\\
+
+(1) $0 < \homoelt / 2 < \homoelt \implies \homoelt/2 \in \homo(\homoelt) \implies \emptyset < \homo(\homoelt)$.\\ 
+(2) $\elt \in \homo(\altelt) \implies \elt < \altelt \implies \altelt \notin\homo(\homoelt) \implies \homo(\homoelt) < \sourceset$.\\
+(3) $\elt < \elt' \in \homo(\altelt) \implies 0 < \elt < \elt' < \homoelt \implies \elt \in \homo(\homoelt).$\\ 
+(4) $\elt \in \homo(\homoelt) \implies \elt < \homoelt \implies \elt < (\elt+ \homoelt)/2 < \homoelt \implies (\elt+ \homoelt)/2 \in \homo(\homoelt)$. \\
+
+\textbf{Proposition}\\
+$\forall \elt,\elt' \in \sourceset \;\; \homo(\elt) = \homo(\elt') \implies \elt = \elt'$.\\
+
+\section{Ordering each element of \targetset$}\\
+
+
+\textbf{Definition}\\
+For $A \in \targetset$ and $ n \in \naturals$, define $\intersector^A_n = A \cap \nondisjoints_n$.\\
+
+
+
+
+
+\textbf{Proposition}\\
+$\forall n \in \naturals \;\; |\intersector^A_n| \in \naturals$.\\
+
+\textbf{Proposition}\\
+$A = \bigcup_n^\infty \intersector^A_n$.\\
+
+\textbf{Definition}\\
+Let $a \in \intersector^A_i, a' \in \intersector^A_j$ and define $a \prec a'$ if (1) $i < j$ or (2) if $i = j$ and $a <  a'$.\\
+
+
+
+\textbf{Proposition}\\
+The order $\prec$ can be used to enumerate A, with elements appearing more than once.\\
+
+\textbf{Definition}\\
+For $A \in \targetset$, define $\carpenter^A : \naturals \to A$ to be sequence of $A$'s elements as ordered by $\prec.$\\
+
+\textbf{Example}\\
+Let $A = \{ \elt \in \sourceset : \elt < 1 \}.$ Then $\carpenter^A = \frac{1}{2},\frac{1}{3},\frac{2}{3},\frac{1}{4},\frac{2}{4},\frac{3}{4}, ... $ and $\carpenter^A_2 = \frac{1}{3}$.\\
+
+\textbf{Definition}\\
+Define $\mu^A = \min \{ m \in \naturals : 1/m \in A \}$. \\
+
+
+\textbf{Definition}\\
+For $A \in \targetset$ and $ n \in \naturals$, define $\interceptor^A_n = \intersector^A_{n + \mu^A - 1}.$\\ 
+
+
+\textbf{Proposition}\\
+$\forall n \in \naturals \;\; \interceptor^A_n \ne \emptyset$.\\
+ 
+\textbf{Definition}\\
+For each $A \in \targetset$, define $\climber^A_n = \max  \interceptor^A_n$.\\
+
+\textbf{Example}\\
+Let $A = \{ \elt \in \sourceset :\elt < 1 \}.$ Then $\mu^A = 1$ and $\climber^A = \frac{1}{2}, \frac{3}{4},\frac{7}{8},\frac{15}{16},\frac{31}{32},\frac{63}{64},\frac{127}{128}, ... $.$\\
+
+\textbf{Proposition}\\
+$\forall n \in \naturals \;\; \forall k \in \naturals \;\;f^A_n \le f^A_{kn}$.\\
+
+(1) $\interceptor^A_n \subset \interceptor^A_{kn} \implies \max \interceptor^A_n \le \max \interceptor^A_{kn} $.\\
+ 
+ \textbf{Proposition}\\
+ $\forall n \in \naturals \;\; f^A_n \in A.\\
+
+\textbf{Proposition}\\
+$\forall n \in \naturals \;\; f^A_n + 2^{-n} \notin A.\\
+
+(1)$f^A_n = \max A \cap \nondisjoints_{\mu^A + n} <  f^A_n + 2^{-\mu^A - n} \in \nondisjoints_{\mu^A + n} \implies \climber^A_n + 2^{-\mu^A - n} \notin A \implies \climber^A_n + 2^{- n} \notin A.$\\
+
+\textbf{Proposition}\\
+$\forall a \in A \;\; \exists n \in \naturals \;\; a \le f^A_n.$\\ 
+
+(1) $a \in A = \bigcup (A \cap \nondisjoints_n) \implies a \in A \cap \nondisjoints_{n_0} \implies a \le f^A_{n_0} = \max A \cap \nondisjoints_{n_0}$\\
+
+\textbf{Definition}\\
+For $A \in \targetset$ define $\leaper^A : A \to A$ by $\leaper^A(a) = \carpenter^A_{m_0}$, where $m_0 = \min \{ m \in \naturals : \carpenter^A(m) > a \}.$\\
+
+\textbf{Definition}\\
+For $A \in \targetset$ define $\umbrella^A= \min \{ k \in \sourceset : k \notin A \}.$\\ 
+
+\textbf{Definition}\\
+For $A, B \in \targetset$ define $AB = \{ \elt \in \sourceset : \exists a' \in A \;\; \exists b' \in B \;\; \elt < a'b' \}.$\\
+
+\textbf{Proposition}\\
+$A, B \in \targetset \implies AB \in \targetset$.\\ 
+
+(1) $2^{-m_0} < \carpenter^A_1 \carpenter^B_1  \implies 2^{-m_0} \in AB$.\\
+(2) $ \altelt < \elt' \in AB \implies \altelt < \elt' < ab \implies \altelt \in AB$.\\
+(3) $\elt \in AB \implies \elt < a'b'  < \leaper^A(a') \leaper^B(b') \implies a'b' \in AB.$\\
+(4) $\umbrella^A \umbrella^B \in AB \implies \umbrella^A \umbrella^B < a'b' < \umbrella^A \umbrella^B$, hence $\umbrella^A \umbrella^B \notin AB.$\\ 
+
+\textbf{Definition}\\
+Define $I = \{\elt \in \sourceset : \elt < 1 \}$.\\
+
+\textbf{Proposition}\\
+$\forall A \in \targetset \;\; AI = A$.\\
+
+(1) $\elt \in AI \implies \elt < ai < a \implies \elt \in A$. Hence $AI \subset A$.\\
+(2) $\elt \in A \implies \elt < \leaper^A(\elt) \in A \implies \exists n_0 \;\; \elt < \leaper^A(\elt)(1-2^{-n_0}) \implies a \in AI.$ Hence $A \subset AI$. \\
+
+
+\textbf{Definition}\\
+Define $\rooter : \sourceset \to \targetset$ by $\rooter(\altelt) = \{\elt \in \sourceset: \elt^2 < \altelt\}.$\\ 
+
+\textbf{Proposition}\\
+$[f^{\rooter(p)}_n]^2 \nearrow p$.\\
+
+(1) $[f^{\rooter(p)}_n]^2 < p < [ f^{\rooter(p)}_n + 2^{-n} ]^2 = [f^{\rooter(p)}_n]^2  + 2^{1-n} f^{\rooter(p)}_n +  2^{-2n} < p + 2^{1-n} \umbrella^{\rooter(p)} + 2^{-2n}$.\\
+(2) $0 < p - [f^{\rooter(p)}_n]^2 < 2^{1-n} \umbrella^{\rooter(p)} + 2^{-2n} \to 0$.\\
+
+\textbf{Proposition}\\
+$[f^{\rooter(p)}_n +2^{-n}]^2 \searrow p$.\\
+
+(1) $0 < [ f^{\rooter(p)}_n + 2^{-n} ]^2 - p < [ f^{\rooter(p)}_n^2 + 2^{-n} ]^2 -[f^{\rooter(p)}_n]^2 < 2^{1-n} \umbrella^{\rooter(p)} + 2^{-2n} \to 0$.\\
+
+\textbf{Proposition}\\
+$\rooter(\sourceset) \subset \targetset$.\\
+
+(1) $ 2^{-n_0} < \min\{x,1\} \implies (2^{-n_0})^2 = 2^{-2n_0} < 2^{-n_0} < \altelt \implies 2^{-n_0} \in $ \rooter(\altelt)$. 
+
+(2) $\elt < \altelt \in  \rooter(\altelt) \implies \elt^2 < \altelt^2 < x \implies \elt \in \rooter(\altelt)$.
+
+(3) $\elt \in \rooter(\altelt) \implies \elt^2 < \altelt \implies  (\elt + 2^{-n_0})^2 = \elt^2 + 2^{1-n_0}\elt + 2^{-2n_0} < \altelt \implies (\elt + 2^{-n_0})^2 \in $  \rooter(\altelt)$.
+
+(4) $\elt = \max\{\altelt ,1\} \implies \elt^2 \ge \elt \ge \altelt \implies \elt \notin $ \rooter(\altelt).$\\ 
+
+\textbf{Proposition}\\
+$\forall \altelt \in \sourceset \;\; \rooter(\altelt)\rooter(\altelt) = \homo(\altelt).\\ 
+
+(1) $x \in \rooter(\altelt)\rooter(\altelt) \implies x < q_0q_1 < q^2_{\max} < \altelt \implies  x \in \homo(\altelt)$. Hence $\rooter(\altelt)\rooter(\altelt) \subset \homo(\altelt)$\\
+(2) $p \in \homo(\altelt)$ and $[ f^{\rooter(p)}_n + 2^{-n} ]^2 \searrow p \implies \exists n_0 \in \naturals \;\;  p < [ f^{\rooter(p)}_{n_0} + 2^{-n_0} ]^2 < s$.\\
+(3) $f^{\rooter(p)}_{n_0} + 2^{-n_0} \in \rooter(\altelt) \implies p \in \rooter(\altelt)\rooter(\altelt)$. Hence $\homo(\altelt) \subset \rooter(\altelt)\rooter(\altelt)$.\\ 
+
+\textbf{Definition}\\
+For all $A \subset \sourceset$, define $\sqrt{A} = \{\elt \in \sourceset:  \elt^2 \in A\}.$\\
+
+
+
+\textbf{Proposition}\\
+$A \in \targetset \implies \sqrt{A} \in \targetset$.\\
+
+(1) $ 2^{-n_0} \in P \implies 2^{-2n_0} < 2^{-n_0} \in P \implies 2^{-2n_0} \in P \implies 2^{-n_0} \in \sqrt{P}.$\\
+(2) $\elt < \altelt \in  \sqrt{P} \implies \elt^2 < \altelt^2 \in P \implies \elt^2 \in P \implies \elt \in \sqrt{P}.$\\ 
+(3) $\elt \in \sqrt{P} \implies \elt^2 < p_0 \in P \implies  (\elt + 2^{-n_0})^2 < p_0 \implies \elt + 2^{-n_0} \in   \sqrt{P}$.\\
+(4) $p <  \umbrella_P < \umbrella_P^2  \implies \umbrella_P \notin  \sqrt{P}$.\\ 
+
+\textbf{Proposition}\\
+$A \in \targetset \implies \sqrt{A} \sqrt{A} = A$.\\ 
+
+(1) $\elt \in \sqrt{A} \sqrt{A}\implies \exists r_0, r_1 \in \sqrt{A} \;\;\; \elt < r_0r_1 \le r_{\max}^2 \in A \implies \elt \in A$. Hence $\sqrt{A} \sqrt{A} \subset A.$\\
+(2) $a \in A$ and  $[f^{\rooter(a)}_n + 2^{-n}]^2 \searrow a \implies \exists n_0 \in \naturals \;\; a < [f^{\rooter(a)}_{n_0} + 2^{-n_0}]^2 < \leaper^A(a) $.\\
+(3) $ f^{\rooter(a)}_{n_0} + 2^{-n_0} \in \sqrt{A} \implies a \in \sqrt{A}\sqrt{A}$. Hence $A \subset \sqrt{A} \sqrt{A}$.\\ 
+
+\textbf{Definition}\\
+For $A \subset \sourceset$, define $\invmark A := \{ \elt \in \sourceset : \exists n \in \naturals \;\; \forall a \in A \; [\elt + 2^{-n}]a < 1\}$.\\
+
+\textbf{Proposition}\\
+$A \in \targetset \implies \invmark A \in \targetset.$\\
+
+(1) $[2^{-m_0} + 2^{-m_0} ]\umbrella^A < 1 \implies [2^{-m_0} + 2^{-m_0} ]a < [2^{-m_0} + 2^{-m_0} ]\umbrella^A < 1 \implies 2^{-m_0} \in \invmark A.$\\
+(2) $y < x \in \invmark A \implies  \forall \elt \in A \;\; [ y + 2^{-m_0} ]a <  [ x + 2^{-m_0} ]a< 1 \implies y \in \invmark A$.\\
+(3) $x \in \invmark A \implies \forall \elt \in A \;\; [x + 2^{-m_0}]a = [x + 2^{-m_0-1} + 2^{-m_0-1}]a < 1 \implies x + 2^{-m_0-1} \in \invmark A$.\\
+(4) $2^{-n_0} < \carpenter^A_1 \implies 1 < 2^{n_0} \carpenter^A_1 \implies 2^{n_0} \notin \invmark A$.\\
+
+\textbf{Definition}\\
+Define $\prevert^{A}_n = \carpenter^A_{m_n}$ where $m_n = \min\ M_n$, where $M_n = \{ m \in \naturals : \carpenter^A_m [ f^{\invmark A}_n + 2^{-n}] \ge 1 \}$.\\
+
+\textbf{Note}\\
+The set $M_n$  above is not empty for any $n$, else $f^{\invmark A}_n + 2^{-n} \in \invmark A$, which is impossible by the definition of $f^{\invmark A}_n$.\\
+
+\textbf{Proposition}\\
+$\forall n \in \naturals \;\; 0 < f^{\invmark A}_n \prevert^{ A}_n < 1.$\\
+
+
+
+
+\textbf{Proposition}\\
+$A \in \targetset \implies A \invmark A = I.$ \\
+
+(1) $x \in A \invmark A \implies x < a_0 \invmark a_0 < 1 \implies x \in I$. Hence $A \invmark A \subset I$.\\  
+(2) $ f^{\invmark A}_n \prevert^{A}_n < 1 \le [f^{\invmark A}_n +2^{1-n}] \prevert^{ A}_n = f^{\invmark A}_n \prevert^{ A}_n + 2^{1-n}\prevert^{A}_n < 1 + 2^{1-n}\umbrella^A \implies 0 < 1 - f^{\invmark A}_n \prevert^{ A}_n < 2^{1-n}\umbrella^A   \implies f^{\invmark A}_n \prevert^{ A}_n \to 1$.\\
+(3) $ p \in I \implies 0 < p < 1 \implies \exists n_0 \in \naturals \;\; 0 < p <  f^{\invmark A}_{n_0}  \prevert^{ A}_{n_0} < 1 \implies p \in A \invmark A$. Hence $ I \subset A \invmark A $.\\ \\
+
+
+\textbf{Definition}\\
+For $A \subset \sourceset$ and $\altelt \in \sourceset$ define $A < \elt$ if $\forall a \in A \;\; a < \altelt$. \\
+
+\textbf{Definition}\\
+For $A,A' \in \targetset$, define $A < A'$ iff $ A'- A \ne \emptyset$.\\
+
+\textbf{Proposition}\\
+$[\;\; \exists B \in \targetset \;\; \forall n \in \naturals \;\; B > A_n \in \targetset \;\;] \implies \bigcup_{n=1}^\infty A_n \in \targetset.$\\
+
+\textbf{Proposition}\\
+$[\;A \in \targetset \; \wedge \;\; \forall n \in \naturals \;\; A_n = \homo(\carpenter^A_n) \;] \implies  \bigcup_{n=1}^\infty A_n =A.$\\
+
+(1) $a \in A \implies a < \leaper^A(a) = \carpenter^A_{n_0} \implies a \in A_{n_0}   \implies a \in \bigcup_{n=1}^\infty A_n$. Hence $A \subset \bigcup_{n=1}^\infty A_n.$\\
+(2) $\altelt \in A_n \implies \altelt < \carpenter^A_n \in A \implies \altelt \in A.$ Hence \bigcup_{n=1}^\infty A_n \subset A$.\\
+
+
+\end{document}
+
+
+\section{Introduction}
+
+\end{document}

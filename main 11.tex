@@ -1,0 +1,234 @@
+
+\documentclass[10pt]{article}
+\usepackage[usenames]{color} %used for font color
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+\usepackage{setspace}
+\usepackage{ mathrsfs }
+
+\newcommand{\rationals}{ \mathscr{Q}}
+\newcommand{\ladders}{ \mathscr{L}}
+\newcommand{\dyadics}{ \mathscr{F}}
+\newcommand{\reals}{ \mathbb{R}}
+\newcommand{\naturals}{ \mathscr{N}}
+\newcommand{\carpenter}{ c }
+\newcommand{\leaper}{l}
+\newcommand{\climber}{ f}
+\newcommand{\homo}{\phi}
+\newcommand{\rooter}{\Psi}
+\newcommand{\invmark}{\overline}
+
+%In your preamble
+
+
+\usepackage[margin=0.1in]{geometry}
+\setlength{\parindent}{0pt}
+\begin{document}
+
+
+
+
+
+\section{Floats}
+
+Let $\naturals$ be the set of strictly positive integers.\\
+
+For $n \in \naturals$, define  $F_n = \{ 2^{-n}j : j \in \naturals \}$. \\
+
+Define $\dyadics = \cup_{n \in N} F_n$.\\
+
+For $A \subset \dyadics$, define $A_n = A \cap F_n$, so that $A = \cup A_n$.\\
+
+
+
+\textbf{Closure} $x,y \in \dyadics \implies  x+y,xy \in \dyadics$.\\
+
+(1) \;\;$2^{-m}j + 2^{-n}k = 2^{-m-n+n}j + 2^{-n-m+m}k = 2^{-m-n}(2^nj+2^mk)$.\\
+
+(2) \;\; $2^{-m}j 2^{-n}k = 2^{-m-n}jk$.\\
+
+\section{The Carpenter Sequence}
+The elements of each ladder $A$ are conveniently ordered. Just enumerate $A \cap F_n$ in the usual way for $n = 1,2,3,...$.
+
+Let $\carpenter_A : \naturals \to A$ be this enumeration. Then $\carpenter(\naturals) = A.$
+
+(0) $A = \cup (A \cap F_n)$ and $\forall n \in N \;\; A \cap F_n$ is finite. So  
+
+\section{Floating Ladders}
+
+Intuitively, the every ladder in $\ladders$ is an initial piece or stretch of $\dyadics$ with its elements (rungs) stacked vertically. Then ladders start from $0$ (without containing it) and shoot up some finite distance. More formally, $A \subset \dyadics$ is a ladder if it is nonempty, closed downward, has no maximum, and yet is not all of $\dyadics$.\\
+
+(1) $\exists x \in A$
+
+(2) $ x < y \in A \implies x \in A$.
+
+(3) $x \in A \implies \exists y \in A \;\; x < y $
+
+(4) $\exists x \in A^c$\\
+
+\section{Simple Ladders}
+
+Define $\homo : \dyadics \to \ladders$ by $\homo(e) = \{ d < e \} = \{ d \in \dyadics : d < e \}$. Then $\homo(\dyadics) \subset \ladders.$\\
+
+(1) $0 < 2^{-1}e < e \implies 2^{-1}e \in \homo(e)$. 
+
+(2) $d < d_1 \in \homo(e) \implies 0 < d < d_1 < e \implies d \in \homo(e).$ 
+
+(3) $d \in \homo(e) \implies d < e \implies d < 2^{-1}(d+ e) < e \implies 2^{-1}(d+ e) \in \homo(e)$. 
+
+(4) $d \in \homo(e) \implies d < e \implies e \notin\homo(e)$.\\
+
+We call any element of $\homo(\dyadics$) a \textbf{simple} ladder$.
+
+\section{The Fireman Sequence}
+
+
+For each $A \in L$ we now construct  $\climber_A : \naturals \to A \subset \dyadics $  such that $\forall n \in N \;\; \climber_A(n) \in A$ and $\climber_A(n) + 2^{-n} \notin A$.\\ 
+
+Define $\climber_A(n) = 2^{-m_0-n} j_n$, where $m_0 = \min \{ m \in \naturals : 2^{-m} \in A \}$ and $j_n = \max \{ k : 2^{-m_0-n}k \in A\}$\\
+
+\textbf{Nondecreasing} $\forall n \in \naturals\;\;\;  f_A(n) \le f_A(n+1)$.\\
+
+(1) $2^{-m_0-n}k_n \in A < 2^{-m_0-n-1}(k_{n+1} + 1) \notin A \implies 2k_n \le k_{n+1} \implies  2^{-m_0-n-1} 2 k_n  = f_A(n) \le  2^{-m_0-n-1} k_{n+1} = f_A(n+1)$.\\
+
+The fireman eventually climbs every rung of his assigned ladder.\\
+
+\textbf{Surpassing} \;\;  $\forall a \in A \;\; \exists n \in \naturals \;\; \climber_A(n) > a$\\
+
+(1) $a \in A\implies a < a_0 \in A \implies a + 2^{-n_0}  < a_0  < f_A(n_0) + 2^{-n_0} \notin A \implies a < a_0  - 2^{-n_0} < f_A(n_0) \in A $.\\
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+
+\section{The Leaper Function}
+Given a ladder and one of its rungs, it's convenient sometimes to generate a higher rung (to 'leap' the given rung.)\\
+
+For $A \in \ladders$ define $\leaper_A : A \to A$ by $\leaper_A(a) = f_A(m_0)$, where $m_0 = \min\{f_A(n) > a \}$.\\
+
+Then $\leaper_A(a)$ is the first term of $A$'s fireman sequence greater than $a$, which is always of course itself in $A$.
+
+\section{Umbrellas}
+For each $A$ define the umbrella $u_A$ of $A$ by $u_A= \min \{ k : k \notin A \}.$\\ 
+
+Then $u_A \notin A \implies \forall n \in \naturals \;\; f_A(n) < u_A$, else $u_A \in A$, a contradiction.
+
+\section{Products}
+
+For $A, B \in \ladders$ define the product $AB$ as $\{d < ab\} = \{ d \in \dyadics : \exists a \in A \;\; \exists b \in B \;\; d < ab \}.$\\
+
+\textbf{Closure Under Multiplication} The product of ladders is always a ladder.\\ 
+
+(1) $2^{-m_0} < a b \implies 2^{-m_0} \in AB$.\\
+(2) $ x < y \in AB \implies x < y < ab \implies x \in AB$.\\
+(3) $x \in AB \implies x < ab  < \climber_A(n_0) \climber_B(m_0) \in AB \implies ab \in AB.$\\
+(4) $x \in AB \implies x < ab < u_A u_B \implies u_A u_B \notin AB$, else $u_A u_B < u_A u_B$, a contradiction.\\
+
+\section{A Multiplicative Identity}
+
+Define $I = \{d < 1 \}$, then \forall A \in \ladders \;\; AI = A$.\\
+
+(1) $d \in AI \implies d < ai < a \implies d \in A$, so $AI \subset A$.\\
+(2) $d \in A \implies d < e \in A \implies a < e(1-2^{-n_0}) \in AI \implies d \in AI$, hence $A \subset AI$.\\
+
+\section{Square Roots For Simple Ladders}
+
+Now that we have multiplication and the 'integers' like $\homo(2) \in \ladders$, we can construct that most famous of square roots.\\ 
+
+
+Define $\rooter : \dyadics \to \ladders$ by $\rooter(e) = \{d^2 < e\}.$ Then $\rooter(\dyadics) \subset \ladders$.\\
+
+
+
+(1) $ 2^{-n_0} < \min\{x,1\} \implies (2^{-n_0})^2 = 2^{-2n_0} < 2^{-n_0} < e \implies 2^{-n_0} \in $ \rooter(e)$. 
+
+(2) $d < d_1 \in  \rooter(e) \implies d^2 < d_1^2 < x \implies d \in \rooter(e)$.
+
+(3) $d \in \rooter(e) \implies d^2 < e \implies  (d + 2^{-n_0})^2 = d^2 + 2^{1-n_0}d + 2^{-2n_0} < e \implies (d + 2^{-n_0})^2 \in $  \rooter(e)$.
+
+(4) $d = \max\{e ,1\} \implies d^2 \ge d \ge e \implies d \notin $ \rooter(e).$\\ 
+
+\textbf{Simple Square Root Theorem} \;\; If $Q = \{ d^2 < e \}$ and $P = \{ d < e \}$, then  $Q^2 = P$.\\ 
+
+(1) $s \in Q^2 \implies \exists q_0, q_1 \in Q \;\;\; s < q_0q_1 < \max \{p_0,p_1\}^2  < e \implies  s \in P$.\\
+
+(2) $p \in P \implies   p < [f_{\rooter(p)}(n_0) + 2^{-n_0}]^2 < p + 2^{1-n_0}u_P + 2^{-2n_0} < e \implies f_{\rooter(p)}(n_0) + 2^{-n_0} \in Q \implies p \in Q^2$.\\
+
+
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\bigbreak
+\section{The Multiplicative Inverse}
+
+
+For $d \in \dyadics$ and $A \subset \dyadics$, define $d < A $ as $  \forall a \in A \;\;  d < a$ and $d > A$ as $ \forall a \in A \;\;  d > a$.\\
+
+For $A \subset \dyadics$, define $A^{-1} = \{ a^{-1} \}\subset \rationals$.\\
+
+For $A \subset \dyadics$, define $\invmark A := \{\exists n \in \naturals \;\;\; d + 2^{-n} < A^{-1}\}$.\\
+
+Then $A \in \ladders \implies \invmark A \in \ladders.$\\
+
+(1) $A < u_A < 2^{m_0-1} \implies 2^{1-m_0} = 2^{-m_0} + 2^{-m_0} < u_A^{-1} < A^{-1} \implies 2^{-m_0} \in \invmark A$.\\
+(2) $y < x \in \invmark A \implies y + 2^{m_0} < x + 2^{m_0} < A^{-1} \implies y \in \invmark A$.\\
+(3) $x \in \invmark A \implies x + 2^{-m_0} = x + 2^{-m_0-1} + 2^{-m_0-1} < A^{-1} \implies x + 2^{-m_0-1} \in \invmark A$.\\
+(4) $2^{-n_0} < a \in A \implies a^{-1} < 2^{n_0} \implies 2^{n_0} \notin \invmark A$.\\
+
+So $A \in \ladders \implies \invmark A \in \ladders$.\\
+
+
+
+\bigbreak
+\bigbreak
+\bigbreak
+
+\textbf{Inverse Theorem} \;\; If $A \in \ladders$ and $B = \invmark A$, then $AB = I.$ \\
+
+(1) Let $x \in AB$ so $x < ab \in AB$. Also $i < b + \varepsilon < a^{-1} \implies ab < 1 \implies x < ab < 1 \implies x \in I.$\\ 
+(2) $p \in I, f_{\invmark A}(n) +2^{2-n} \notin {\invmark A} \implies a_n^{-1} \le f_{\invmark A}(n) +2^{2-n} +2^{2-n} \implies 1 - 2^{1-n} \le a_n f_{\invmark A}(n) < 1 \implies p < a_{n_0} f_{\invmark A}(n_0) \implies p \in A{\invmark A}$.\\
+
+\section{Square Roots For All Ladders}
+
+\textbf{Lemma} \;\; $P \in \ladders \implies \sqrt{P} := \{ d^2 \in P\} \in \ladders$.\\
+
+(1) $ 2^{-n_0} \in P \implies 2^{-2n_0} < 2^{-n_0} \in P \implies 2^{-2n_0} \in P \implies 2^{-n_0} \in \sqrt{P}.$\\
+(2) $d < d_1 \in  \sqrt{P} \implies d^2 < d_1^2 \in P \implies d^2 \in P \implies d \in \sqrt{P}.$\\ 
+(3) $d \in \sqrt{P} \implies d^2 < p_0 \in P \implies  (d + 2^{-n_0})^2 < p_0 \implies d + 2^{-n_0} \in $  \sqrt{P}$.
+
+(4) $\forall p \in P \;\;\; p <  \max\{u_P ,2\} \le [\max\{u_P ,2\}]^2  \implies  \max\{u_P ,2\} \notin  \sqrt{P}$.\\ 
+
+
+\textbf{General Square Root Theorem} \;\; $Q = \sqrt{P} \implies Q^2 = P$.\\ 
+
+(1) $s \in Q^2 \implies \exists q_0, q_1 \in Q \;\;\; s < q_0q_1 < q_{\max\{p_0,p_1\}}^2 \in P \implies  s \in P$.\\
+(2) $p \in P \implies   p < [f_{\rooter(p)}(n_0) + 2^{-n_0}]^2 < p + 2^{1-n_0}u_P + 2^{-2n_0} < \leaper_P(p) \in P \implies f_{\rooter(p)}(n_0) + 2^{-n_0} \in Q \implies p \in Q^2$.
+
+\end{document}
+
